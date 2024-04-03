@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+    /* CSS 스타일링 */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .todo-container {
+        margin: 20px auto;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    .todo-input-area {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .todo-input-area input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .todo-input-area select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
+
+    .todo-input-area button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: white;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .todo-input-area button:hover {
+        background-color: #45a049;
+    }
+
+    .todo-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .todo-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .todo-item:last-child {
+        border-bottom: none;
+    }
+
+    .todo-item input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    .todo-item span {
+        flex: 1;
+        font-size: 16px;
+    }
+
+    .todo-item .priority {
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .todo-item button {
+        background-color: #f44336;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .todo-item button:hover {
+        background-color: #dd3737;
+    }
+
+    .completed {
+        text-decoration: line-through;
+        color: #999;
+    }
+</style>
+</head>
+<body>
+<div class="todo-container">
+    <h2>To-Do List</h2>
+    <div class="todo-input-area">
+        <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+        <select id="priority">
+            <option value="낮음">낮음</option>
+            <option value="보통">보통</option>
+            <option value="높음">높음</option>
+            <option value="아주 높음">아주 높음</option>
+        </select>
+        <button onclick="addTodo()">할 일 추가하기</button>
+    </div>
+    <div id="todoList"></div>
+</div>
+
+<script>
+    let todos = [];
+
+    function addTodo() {
+        const todoInput = document.getElementById("todoInput");
+        const priority = document.getElementById("priority").value;
+        const todo = {
+            text: todoInput.value,
+            priority: priority,
+            completed: false
+        };
+        todos.push(todo);
+        renderTodos();
+        todoInput.value = "";
+    }
+
+    function deleteTodo(index) {
+        todos.splice(index, 1);
+        renderTodos();
+    }
+
+    function toggleCompleted(index) {
+        todos[index].completed = !todos[index].completed;
+        renderTodos();
+    }
+
+    function renderTodos() {
+        const todoList = document.getElementById("todoList");
+        todoList.innerHTML = "";
+
+        todos.forEach((todo, index) => {
+            const todoItem = document.createElement("div");
+            todoItem.classList.add("todo-item");
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = todo.completed;
+            checkbox.addEventListener("change", () => toggleCompleted(index));
+            todoItem.appendChild(checkbox);
+
+            const todoText = document.createElement("span");
+            todoText.textContent = todo.text;
+            if (todo.completed) {
+                todoText.classList.add("completed");
+            }
+            todoItem.appendChild(todoText);
+
+            const priorityText = document.createElement("span");
+            priorityText.textContent = todo.priority;
+            priorityText.classList.add("priority");
+            todoItem.appendChild(priorityText);
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "삭제";
+            deleteButton.addEventListener("click", () => deleteTodo(index));
+            todoItem.appendChild(deleteButton);
+
+            todoList.appendChild(todoItem);
+        });
+    }
+
+    renderTodos();
+</script>
+</body>
+</html>
