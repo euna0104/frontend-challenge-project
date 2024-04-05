@@ -1,0 +1,149 @@
+body,
+h1,
+p {
+  margin: 0;
+}
+
+#nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid rgb(207, 207, 207);
+  border-bottom: 1px solid rgb(207, 207, 207);
+  padding: 0 100px;
+}
+.nav-item-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.nav-item {
+  padding: 15px;
+  color: gray;
+  transition: all 0.3s;
+}
+.nav-item:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+  color: black;
+}
+
+.article-container {
+  padding: 50px 300px;
+}
+#main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+.img-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 400px;
+  position: relative;
+  cursor: pointer;
+}
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+.main-img-text {
+  color: white;
+}
+.br-text {
+  font-size: 32px;
+}
+
+.sub-img-wrapper {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+  /* float: left; */
+  position: relative;
+}
+.sub-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  /* float: left; */
+}
+.intern-contents-container {
+  width: 200px;
+  box-shadow: 1px 1px 5px 1px gray;
+  border-radius: 5px;
+  padding: 6px;
+  margin-bottom: 12px;
+}
+.intern-contents-text-wrapper {
+  margin: 6px 0;
+}
+.intern-contents-state {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  padding: 3px;
+  margin-right: 5px;
+}
+
+.space-between-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.flex-wrap-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.blue-text {
+  color: rgb(78, 78, 219);
+  cursor: pointer;
+}
+
+.employment-item-container {
+  width: 45%;
+  box-shadow: 1px 1px 5px 1px gray;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.employment-item-img-wrapper {
+  width: 100px;
+  height: 100px;
+}
+.employment-item-img-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+#ad-img-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  height: 120px;
+}
+#ad-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.class-text {
+  font-size: 12px;
+}
+
+.happy-text {
+  background-color: #eee;
+  color: gray;
+  padding: 4px;
+  border-radius: 15px;
+  font-size: 10px;
+}
