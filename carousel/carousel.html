@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <style>
+        .carousel_main {
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            user-select: none;
+        }
+        .corousel_wrapper {
+            display: flex;
+            transition: transform 1s;
+        }
+        .carousel_slide {
+            flex: 0 0 300px;
+            position: relative;
+        }
+        .carousel_slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .carousel_button_container {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%
+        }
+        .carousel_button {
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .carousel_prev {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 0px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .carousel_next {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 0px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .carousel_pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: tramslateX(-50%);
+            display: flex;
+        }
+        .carousel_circle {
+            width: 10px;
+            height: 10px;
+            background-color:  #aaa;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel_circle.active {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel_main">
+        <div class="carousel_wraper">
+            <div class="carousel_slide">
+                <img src="./Seoul1.png" alt="Seoul1" />
+            </div>
+            <div class="carousel_slide">
+                <img src="./Seoul2.png" alt="Seoul2" />
+            </div>
+            <div class="carousel_slide">
+                <img src="./Seoul3.png" alt="Seoul3" />
+            </div>
+        </div>
+        <div class="carousel_button_container">
+            <button type="button" class="carousel_prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            </button>
+            <button type="button" class="carousel_next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="carousel_pagination">
+            <div class="carousel_circle"></div>
+            <div class="carousel_circle"></div>
+            <div class="carousel_circle"></div>
+        </div>
+    </div>
+</body>
+</html>
