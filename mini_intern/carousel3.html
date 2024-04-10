@@ -4,13 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="clone.css" />
+    <link rel="stylesheet" href="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\carousel3.css" />
+    <style>
+      .carousel_main {
+        width: 300px;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        user-select: none;
+      }
+      .carousel_wrapper {
+        display: flex;
+      }
+      .carousel_slide {
+        flex: 0 0 300px;
+        position: relative;
+      }
+      .carousel_slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .carousel_button_container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+       }
+      .carousel_button {
+        width: 50px;
+        height: 50px;
+        color: #fff;
+        background: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+      .carousel_prev {
+        background-color: rgba(0, 0, 0, 0.3);
+        border: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .carousel_next {
+        background-color: rgba(0, 0, 0, 0.3);
+        border: 0px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .carousel_pagination {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+      }
+      .carousel_circle {
+        width: 10px;
+        height: 10px;
+        background-color:  #aaa;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      .carousel_circle.active {
+        background-color: #333;
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav id="nav-container">
         <div class="nav-item-wrapper">
-          <div>LOGO</div>
+          <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\logo.png" alt="로고" />
           <div class="nav-item">미니인턴</div>
           <div class="nav-item">스킬업</div>
           <div class="nav-item">M클래스</div>
@@ -30,7 +107,7 @@
     <main>
       <article id="main-container" class="article-container">
         <div class="img-wrapper">
-          <img src="./main_img_1.webp" alt="메인 배너1" />
+          <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\main.jpg" alt="메인1" />
           <div style="padding: 25px; position: absolute; height: auto">
             <p class="main-img-text br-text">최대한의 효율로</p>
             <p class="main-img-text br-text">직무경험을 쌓아보세요</p>
@@ -39,7 +116,7 @@
           <p class="main-img-text" style="position: absolute; bottom: 30px; left: 30px">--------->회원가입하기</p>
         </div>
         <div class="img-wrapper">
-          <img src="./main_img_2.webp" alt="메인 배너2" />
+          <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\main2.jpg" alt="메인2" />
         </div>
       </article>
 
@@ -155,23 +232,56 @@
           </div>
         </div>
         <div
-          style="
-            width: 400px;
-            height: 250px;
-            background-color: rgb(43, 234, 43);
-            border-radius: 10px;
-            position: relative;
-            top: -170px;
-            right: -100px;
-            color: white;
-            font-size: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          "
-        >
-          디스플레이 광고 이해하기
-        </div>
+  style="
+    width: 400px;
+    height: 250px;
+    background-color: #eee;
+    border-radius: 10px;
+    position: relative;
+    top: -170px;
+    right: -100px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <!-- 새로운 카루셀 내용 -->
+  <div class="carousel_main">
+    <div class="carousel_wrapper" id="carouselWrapper">
+      <div class="carousel_slide">
+        <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\Seoul1.png" alt="Seoul1" />
+      </div>
+      <div class="carousel_slide">
+        <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\Seoul2.png" alt="Seoul2" />
+      </div>
+      <div class="carousel_slide">
+        <img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\Seoul3.png" alt="Seoul3" />
+      </div>
+    </div>
+    <div class="carousel_button_container">
+      <button type="button" class="carousel_prev" onclick="prevSlide()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+      <button type="button" class="carousel_next" onclick="nextSlide()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+          <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="carousel_pagination">
+      <div class="carousel_circle" onclick="goToSlide(0)"></div>
+      <div class="carousel_circle" onclick="goToSlide(1)"></div>
+      <div class="carousel_circle" onclick="goToSlide(2)"></div>
+    </div>
+  </div>
+</div>
+
       </article>
 
       <!-- 채용중인 기업 -->
@@ -184,7 +294,52 @@
 
         <div class="flex-wrap-wrapper">
           <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
+            <div class="info-wrapper">
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
+              <p>인턴</p>
+            </div>
+          </div>
+          <div class="employment-item-container">
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
+            <div class="info-wrapper">
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
+              <p>인턴</p>
+            </div>
+          </div>
+          <div class="employment-item-container">
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
+            <div class="info-wrapper">
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
+              <p>인턴</p>
+            </div>
+          </div>
+          <div class="employment-item-container">
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
+            <div class="info-wrapper">
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
+              <p>인턴</p>
+            </div>
+          </div>
+          <div class="employment-item-container">
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
+            <div class="info-wrapper">
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
+              <p>인턴</p>
+            </div>
+          </div>
+          <div class="employment-item-container">
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
             <div class="info-wrapper">
               <p>개발</p>
               <p>개발 인턴</p>
@@ -193,65 +348,20 @@
             </div>
           </div>
           <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
             <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
               <p>인턴</p>
             </div>
           </div>
           <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
+            <div class="employment-item-img-wrapper"><img src="C:\Users\USER\Desktop\frontend-challenge-project\mini_intern\nua.png" alt="" /></div>
             <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
-              <p>인턴</p>
-            </div>
-          </div>
-          <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
-            <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
-              <p>인턴</p>
-            </div>
-          </div>
-          <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
-            <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
-              <p>인턴</p>
-            </div>
-          </div>
-          <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
-            <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
-              <p>인턴</p>
-            </div>
-          </div>
-          <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
-            <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
-              <p>인턴</p>
-            </div>
-          </div>
-          <div class="employment-item-container">
-            <div class="employment-item-img-wrapper"><img src="https://imgur.com/FA1h6V4" alt="" /></div>
-            <div class="info-wrapper">
-              <p>개발</p>
-              <p>개발 인턴</p>
-              <p>(주) 클라썸</p>
+              <p>마케팅</p>
+              <p>글로벌 마케터 인턴 모집</p>
+              <p>(주) 누아</p>
               <p>인턴</p>
             </div>
           </div>
@@ -463,5 +573,40 @@
       (주)오픈놀 | 대표이사 : 권인택 | 이메일 : help@miniintern.com | 문의 : 070-8221-3056 서울특별시 영등포구 양평로 2 주식회사 오픈놀 | 사업자등록번호 :
       110-81-99930 직업정보제공사업 : 서울서부 제2018-19호 | 통신판매업신고 : 제2021-서울영등포-2467호 | 유료직업소개사업등록번호 : 제2021-3180239-14-5-00015호
     </footer>
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.carousel_slide');
+      const totalSlides = slides.length;
+
+      function showSlide(n) {
+          slides.forEach(slide => {
+              slide.style.display = 'none';
+          });
+
+          slides[n].style.display = 'block';
+          currentSlide = n;
+      }
+
+      function nextSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          showSlide(currentSlide);
+      }
+
+      function goToSlide(n) {
+          currentSlide = n;
+          showSlide(currentSlide);
+      }
+
+      function autoSlide() {
+          nextSlide();
+      }
+
+      setInterval(autoSlide, 2000);
+    </script>
   </body>
 </html>
